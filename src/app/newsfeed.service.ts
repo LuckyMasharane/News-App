@@ -7,12 +7,12 @@ const API_KEY = environment.API_Key;
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class NewsfeedService {
 
   constructor(private http: HttpClient) { }
 
   getNews(url){
-    return this.http.get(`${API_URL}/${url} &apiKey= ${API_KEY}`)
+    return this.http.get(`${API_URL}/${url}&apiKey=${API_KEY}`)
   }
 }
