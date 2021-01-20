@@ -18,9 +18,7 @@ export class Tab2Page {
         Validators.required
       ]))
     });
-
-
-
+    
     this.loadWeather(this.validations_form.value.city);
   }
 
