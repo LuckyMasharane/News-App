@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NewsfeedService } from '../newsfeed.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,18 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  articles: any
+
+  constructor(private newsService: NewsfeedService) { 
+    this.loadNews()
+  }
+
+  loadNews(){
+    this.newsService.getNews("top-headlines?country=us").subscribe( news => {
+      this.articles = news['articles'];
+      console.log(this.articles);
+      
+    })
+  }
 
 }
